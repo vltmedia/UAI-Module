@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UAI_ONNX_FaceParse", "UAI_ONNX_FaceParse.csproj", "{AE0490B6-E744-415F-BD6C-2201426F47DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{436B6608-1E45-4A34-9051-EA0C60354718}"
+	ProjectSection(SolutionItems) = preProject
+		DownloadLatestDLL.ps1 = DownloadLatestDLL.ps1
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UAI_CLI_FaceParse", "UAI_CLI_FaceParse\UAI_CLI_FaceParse.csproj", "{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "UAI_CLI_FaceParse_Setup", "UAI_CLI_FaceParse_Setup\UAI_CLI_FaceParse_Setup.vdproj", "{134C2340-5B2B-4014-9A93-2380229D09DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE0490B6-E744-415F-BD6C-2201426F47DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0490B6-E744-415F-BD6C-2201426F47DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0490B6-E744-415F-BD6C-2201426F47DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0490B6-E744-415F-BD6C-2201426F47DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{134C2340-5B2B-4014-9A93-2380229D09DD}.Debug|Any CPU.ActiveCfg = Debug
+		{134C2340-5B2B-4014-9A93-2380229D09DD}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4A73951-C27C-4B08-B995-8DFCBF1142D2}
+	EndGlobalSection
+EndGlobal

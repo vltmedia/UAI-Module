@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath></BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="UAI_CLI_FaceParse\**" />
+    <EmbeddedResource Remove="UAI_CLI_FaceParse\**" />
+    <None Remove="UAI_CLI_FaceParse\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Reference Include="UAI_ONNX">
+      <HintPath>UAI_ONNX.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="cvextern.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libusb-1.0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="opencv_videoio_ffmpeg490_64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="UAI_ONNX.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)\DownloadLatestDLL.ps1&quot; -githubRepo &quot;vltmedia/UAI_ONNX&quot; -assetName &quot;UAI_ONNX.dll&quot; -outputPath &quot;$(ProjectDir)&quot;" />
+  </Target>
+
+</Project>

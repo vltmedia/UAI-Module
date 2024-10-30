@@ -2,6 +2,7 @@
 
 This library project provides a **FaceParser** ``ONNXProcessor`` model that can be used to create masks of people in images. The model is based on [Face Parsing](https://huggingface.co/jonathandinu/face-parsing).
 
+
 ![img](media\demo.png)
 
 # Artifacts Generated

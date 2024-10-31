@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "UAI_CLI_FaceParse": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \"P:\\temp\\lincoln_360x450.jpg\" -o P:\\temp\\aiface -m \"F:\\Projects\\UAI\\GodotOnnx\\Onnx\\FaceParsing\\model_quantized.onnx\" --saveMasks "
+    }
+  }
+}

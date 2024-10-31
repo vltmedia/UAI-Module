@@ -6,22 +6,26 @@ namespace UAI.AI.ONNX.FaceParser
     {
         public static FaceParserRuntime Instance;
         public static FaceParsing faceParsing;
-        public FaceParserRuntime(string[] arguments) : base(arguments)
+        public FaceParserRuntime(string[] arguments, bool hasMainLoop = false) : base(arguments)
         {
+            this.hasMainLoop = hasMainLoop;
+            this._hasMainLoop = hasMainLoop;
             Instance = this;
         }
 
         public override async Task StartApp()
         {
             await base.StartApp();
-            faceParsing = new FaceParsing(args.modelPath);
-            faceParsing.LoadImage(args.inputPath);
-            Console.WriteLine("Starting FaceParser");
+            //faceParsing = new FaceParsing(args.modelPath);
 
-            await faceParsing.RunOnnxInference();
             // Start the App
 
          
+        }
+
+        public void LoadModel(string modelPath)
+        {
+            faceParsing = new FaceParsing(modelPath);
         }
 
 

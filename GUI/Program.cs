@@ -1,4 +1,4 @@
-namespace UAI_GUI_FaceParse
+namespace GUI
 {
     internal static class Program
     {

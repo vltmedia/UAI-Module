@@ -9,19 +9,19 @@
 
   <ItemGroup>
     <Compile Remove="Installer\**" />
-    <Compile Remove="UAI_CLI_FaceParse\**" />
-    <Compile Remove="UAI_CLI_FaceParse_Setup\**" />
-    <Compile Remove="UAI_GUI_FaceParse\**" />
+    <Compile Remove="CLI\**" />
+    <Compile Remove="CLI_Setup\**" />
+    <Compile Remove="GUI\**" />
     <Compile Remove="UAI_GU_FaceParse\**" />
     <EmbeddedResource Remove="Installer\**" />
-    <EmbeddedResource Remove="UAI_CLI_FaceParse\**" />
-    <EmbeddedResource Remove="UAI_CLI_FaceParse_Setup\**" />
-    <EmbeddedResource Remove="UAI_GUI_FaceParse\**" />
+    <EmbeddedResource Remove="CLI\**" />
+    <EmbeddedResource Remove="CLI_Setup\**" />
+    <EmbeddedResource Remove="GUI\**" />
     <EmbeddedResource Remove="UAI_GU_FaceParse\**" />
     <None Remove="Installer\**" />
-    <None Remove="UAI_CLI_FaceParse\**" />
-    <None Remove="UAI_CLI_FaceParse_Setup\**" />
-    <None Remove="UAI_GUI_FaceParse\**" />
+    <None Remove="CLI\**" />
+    <None Remove="CLI_Setup\**" />
+    <None Remove="GUI\**" />
     <None Remove="UAI_GU_FaceParse\**" />
   </ItemGroup>
 
@@ -49,7 +49,7 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(ProjectDir)DownloadLatestNupkg.ps1&quot; -githubRepo &quot;vltmedia/UAI_ONNX&quot; -packageName &quot;UAI_ONNX&quot; -outputPath &quot;$(ProjectDir.TrimEnd('\'))&quot; -versionFilePath &quot;$(ProjectDir)version.txt&quot; --projectPath &quot;$(ProjectDir)UAI_ONNX_FaceParse.csproj&quot;&#xA;" />
+    <Exec Command="call &quot;$(ProjectDir)DownloadRequirements.bat&quot;" />
   </Target>
 
 </Project>

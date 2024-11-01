@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GUI": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \"C:/Users/JUSTIN~1/AppData/Local/Temp/Bravo Media/EyesWatchingYou/5a99b189-8142-40b7-9c05-cc2af66392b0.png\" -o C:/Users/JUSTIN~1/AppData/Local/Temp/Bravo Media/EyesWatchingYou/output -m \"C:\\Program Files/UAISoftware\\CLI\\model\\model_quantized.onnx\" --saveJson --saveMasks"
+    }
+  }
+}

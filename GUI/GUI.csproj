@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UAI_CLI_FaceParse\UAI_CLI_FaceParse.csproj" />
+    <ProjectReference Include="..\CLI\CLI.csproj" />
   </ItemGroup>
 
 </Project>

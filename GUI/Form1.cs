@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using UAI.AI.ONNX.FaceParser;
 
-namespace UAI_GUI_FaceParse
+namespace GUI
 {
     public partial class Form1 : Form
     {

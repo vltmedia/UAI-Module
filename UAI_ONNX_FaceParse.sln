@@ -10,11 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		DownloadLatestDLL.ps1 = DownloadLatestDLL.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UAI_CLI_FaceParse", "UAI_CLI_FaceParse\UAI_CLI_FaceParse.csproj", "{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CLI", "CLI\CLI.csproj", "{F5CC8597-5275-46D7-9E64-533BB6EBB0C2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "UAI_CLI_FaceParse_Setup", "UAI_CLI_FaceParse_Setup\UAI_CLI_FaceParse_Setup.vdproj", "{134C2340-5B2B-4014-9A93-2380229D09DD}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CLI_Setup", "CLI_Setup\CLI_Setup.vdproj", "{134C2340-5B2B-4014-9A93-2380229D09DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UAI_GUI_FaceParse", "UAI_GUI_FaceParse\UAI_GUI_FaceParse.csproj", "{ADE0D70F-26DF-4286-9DAB-1A0B4D784D9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{ADE0D70F-26DF-4286-9DAB-1A0B4D784D9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

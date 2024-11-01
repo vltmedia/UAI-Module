@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:UAI_CLI_FaceParse_Setup"
+"ProjectName" = "8:CLI_Setup"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -33,7 +33,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\UAI_CLI_FaceParse_Setup.msi"
+        "OutputFilename" = "8:Debug\\CLI_Setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -65,7 +65,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\UAI_CLI_FaceParse_Setup.msi"
+        "OutputFilename" = "8:Release\\CLI_Setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -124,7 +124,7 @@
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9AD7552EA9364B319F5E69BA0F1E8FA4"
             {
-            "SourcePath" = "8:..\\UAI_CLI_FaceParse\\UAIBrainServer.ico"
+            "SourcePath" = "8:..\\CLI\\UAIBrainServer.ico"
             "TargetName" = "8:UAIBrainServer.ico"
             "Tag" = "8:"
             "Folder" = "8:_61A9C72B53FD460785EDDAA65DC4EC49"
@@ -197,7 +197,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:UAI_CLI_FaceParse"
+        "ProductName" = "8:CLI"
         "ProductCode" = "8:{ADC01D00-C90A-4F48-9F9B-6447677CCA0D}"
         "PackageCode" = "8:{3B347F2E-839C-4280-BAA9-E31C58F5CEDA}"
         "UpgradeCode" = "8:{C5789E2D-1922-46E5-8F8E-F6794AA5115A}"
@@ -210,7 +210,7 @@
         "Manufacturer" = "8:UAISoftware"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://uai.software"
-        "Title" = "8:UAI_CLI_FaceParse_Setup"
+        "Title" = "8:CLI_Setup"
         "Subject" = "8:"
         "ARPCONTACT" = "8:UAI Software Inc."
         "Keywords" = "8:"
@@ -734,7 +734,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_60CE7073E0E44B2BAF53C952938005F0"
             {
-            "SourcePath" = "8:..\\UAI_GUI_FaceParse\\obj\\Release\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\GUI\\obj\\Release\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_61A9C72B53FD460785EDDAA65DC4EC49"

@@ -2,7 +2,7 @@
   "profiles": {
     "UAI_CLI_FaceParse": {
       "commandName": "Project",
-      "commandLineArgs": "-i \"P:\\temp\\lincoln_360x450.jpg\" -o P:\\temp\\aiface -m \"F:\\Projects\\UAI\\GodotOnnx\\Onnx\\FaceParsing\\model_quantized.onnx\" --saveMasks "
+      "commandLineArgs": "-i \"C:/Users/JUSTIN~1/AppData/Local/Temp/Bravo_Media/EyesWatchingYou/6f4e512b-c4b2-4a2c-8e78-93769ffbc551.jpg\" -o \"C:/Users/JUSTIN~1/AppData/Local/Temp/Bravo_Media/EyesWatchingYou/output\" -m \"C:\\Program Files/UAISoftware\\UAI_CLI_FaceParse\\model\\model_quantized.onnx\" --saveJson --saveMasks"
     }
   }
 }

@@ -8,14 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Installer\**" />
     <Compile Remove="UAI_CLI_FaceParse\**" />
     <Compile Remove="UAI_CLI_FaceParse_Setup\**" />
     <Compile Remove="UAI_GUI_FaceParse\**" />
     <Compile Remove="UAI_GU_FaceParse\**" />
+    <EmbeddedResource Remove="Installer\**" />
     <EmbeddedResource Remove="UAI_CLI_FaceParse\**" />
     <EmbeddedResource Remove="UAI_CLI_FaceParse_Setup\**" />
     <EmbeddedResource Remove="UAI_GUI_FaceParse\**" />
     <EmbeddedResource Remove="UAI_GU_FaceParse\**" />
+    <None Remove="Installer\**" />
     <None Remove="UAI_CLI_FaceParse\**" />
     <None Remove="UAI_CLI_FaceParse_Setup\**" />
     <None Remove="UAI_GUI_FaceParse\**" />
@@ -23,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="UAI_ONNX" Version="1.0.3" />
+    <PackageReference Include="UAI_ONNX" Version="1.0.4" />
   </ItemGroup>
 
 

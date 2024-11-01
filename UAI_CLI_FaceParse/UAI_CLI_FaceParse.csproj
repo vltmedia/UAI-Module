@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cvextern.dll" />
+    <None Remove="libusb-1.0.dll" />
+    <None Remove="opencv_videoio_ffmpeg490_64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="UAIBrainServer.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -26,20 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="cvextern.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="libusb-1.0.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="model\model.onnx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="model\model_quantized.onnx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="opencv_videoio_ffmpeg490_64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

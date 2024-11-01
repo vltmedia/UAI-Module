@@ -10,17 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="model\**" />
+    <EmbeddedResource Remove="model\**" />
+    <None Remove="model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="UAIBrainServer.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UAI_ONNX_FaceParse.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="model\model_quantized.onnx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\UAI_CLI_FaceParse\UAI_CLI_FaceParse.csproj" />
   </ItemGroup>
 
 </Project>

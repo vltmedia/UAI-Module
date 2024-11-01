@@ -10,17 +10,17 @@
   <ItemGroup>
     <Compile Remove="Installer\**" />
     <Compile Remove="CLI\**" />
-    <Compile Remove="CLI_Setup\**" />
+    <Compile Remove="Installer\**" />
     <Compile Remove="GUI\**" />
     <Compile Remove="UAI_GU_FaceParse\**" />
     <EmbeddedResource Remove="Installer\**" />
     <EmbeddedResource Remove="CLI\**" />
-    <EmbeddedResource Remove="CLI_Setup\**" />
+    <EmbeddedResource Remove="Installer\**" />
     <EmbeddedResource Remove="GUI\**" />
     <EmbeddedResource Remove="UAI_GU_FaceParse\**" />
     <None Remove="Installer\**" />
     <None Remove="CLI\**" />
-    <None Remove="CLI_Setup\**" />
+    <None Remove="Installer\**" />
     <None Remove="GUI\**" />
     <None Remove="UAI_GU_FaceParse\**" />
   </ItemGroup>

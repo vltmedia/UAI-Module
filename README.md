@@ -2,7 +2,7 @@
 
 This library project provides a **FaceParser** ``ONNXProcessor`` model that can be used to create masks of people in images. The model is based on [Face Parsing](https://huggingface.co/jonathandinu/face-parsing).
 
-![img](https://raw.githubusercontent.com/vltmedia/UAI_ONNX_FaceParse/refs/heads/master/media/demo.png?token=GHSAT0AAAAAACY2FBCLN2JN76255YQK7ZUGZZC2T3A)
+![img](https://raw.githubusercontent.com/vltmedia/UAI_ONNX_Module/refs/heads/master/media/demo.png?token=GHSAT0AAAAAACY2FBCLN2JN76255YQK7ZUGZZC2T3A)
 
 # Artifacts Generated
 

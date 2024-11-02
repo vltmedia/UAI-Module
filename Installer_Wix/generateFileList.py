@@ -5,9 +5,9 @@ import shutil
 import sys
 import platform
 import json
-
-# Dictionary to store unique IDs for each directory to ensure consistency
+# Dictionaries to track unique IDs
 unique_ids = {}
+component_group_ids = set()
 
 def get_unique_id(name):
     """Generates a unique ID based on a name, ensuring no duplicates."""
@@ -16,9 +16,10 @@ def get_unique_id(name):
     unique_id = f"{name}_{str(uuid.uuid4()).split('-')[0]}"
     unique_ids[name] = unique_id
     return unique_id
+indx = 0
 
-# Function to generate the Component entry with the Directory attribute
 def generate_entry(file_path, directory_id, absPath):
+    global indx
     file_name = os.path.basename(file_path).replace(" ", "_").replace("-", "_")
     isolatedName = file_path.replace(absPath, '')
 
@@ -26,11 +27,9 @@ def generate_entry(file_path, directory_id, absPath):
     if isolatedName[0] == '/' or isolatedName[0] == '\\':
         isolatedName = isolatedName[1:]
     
-    shortcutData = ""
     unique_suffix = str(uuid.uuid4()).split('-')[0]  # Generate a short unique suffix
+    shortcutData = ""
     
-    # Check if the file name contains any of the shortcut mappings
-    indx = 0
     for shortcut in shortcutMapping:
         if shortcut['source'] in file_name:
             shortcutData = f'''
@@ -46,146 +45,89 @@ def generate_entry(file_path, directory_id, absPath):
             '''
         indx += 1
     
+    
+
     entry = f'''<Component Id="GUI.{file_name}_{unique_suffix}" Guid="{str(uuid.uuid4())}" Directory="{directory_id}" Win64="yes">
     <File Id="GUI.{file_name}_{unique_suffix}" Name="{file_name}" Source="$(var.GUI_TargetDir){isolatedName}" />
     {shortcutData}
 </Component>'''
     return entry
 
-# Function to recursively generate unique <Directory> structure and <ComponentGroup> for files
 def generate_directory_and_components(current_path, abs_root_path):
-    # Generate a unique ID for the directory based on its path to ensure it’s consistent
     directory_name = os.path.basename(current_path).replace(" ", "_").replace("-", "_")
+    prettyName = os.path.basename(current_path)
     if current_path == abs_root_path:
         directory_id = "UAIMODULE"
+        prettyName = "$(var.APP_NAME)"
     else:
         directory_id = get_unique_id(directory_name)
 
-    # Create <Directory> tag for the current directory
-    dir_tag = f'<Directory Id="{directory_id}" Name="{os.path.basename(current_path)}">'
-    
-    # Generate components for files in this directory
+    dir_tag = f'<Directory Id="{directory_id}" Name="{prettyName}">'
+
     component_entries = []
     for file_name in os.listdir(current_path):
         file_path = os.path.join(current_path, file_name)
         if os.path.isfile(file_path):
             component_entry = generate_entry(file_path, directory_id, abs_root_path)
             component_entries.append(component_entry)
-    
-    # Generate <ComponentGroup> only if there are files
+
     component_group = ""
-    componentref = f"<ComponentGroupRef Id=\"{directory_id}\"/>"
+    componentref = ""
     if component_entries:
         component_group_id = f"Components_{directory_id}"
-        component_group = f'<ComponentGroup Id="{component_group_id}">\n' + "\n".join(component_entries) + '\n</ComponentGroup>'
+        if component_group_id not in component_group_ids:
+            component_group = f'<ComponentGroup Id="{component_group_id}">\n' + "\n".join(component_entries) + '\n</ComponentGroup>'
+            component_group_ids.add(component_group_id)
+            componentref = f"<ComponentGroupRef Id=\"{component_group_id}\"/>"
 
-    # Recursively process subdirectories
     subdirectory_elements = []
     for entry in os.listdir(current_path):
         entry_path = os.path.join(current_path, entry)
         if os.path.isdir(entry_path):
-            sub_dir_structure, _, componentref = generate_directory_and_components(entry_path, abs_root_path)
+            sub_dir_structure, sub_comp_group, sub_componentref = generate_directory_and_components(entry_path, abs_root_path)
             subdirectory_elements.append(sub_dir_structure)
-    
-    # Closing Directory tag
+            if sub_comp_group:
+                component_group += "\n" + sub_comp_group
+            if sub_componentref and sub_componentref not in componentref:
+                componentref += "\n" + sub_componentref
+
     dir_elements = [dir_tag] + subdirectory_elements + ['</Directory>']
     directory_structure = "\n".join(dir_elements)
     
     return directory_structure, component_group, componentref
 
-# Main function to create directory and component structure for the root directory
-def createStructure(rootDirectory):
+def create_structure(rootDirectory):
     absPath = os.path.abspath(rootDirectory)
     directory_structure, component_groups, componentref = generate_directory_and_components(absPath, absPath)
 
-    # Collect all component groups from subdirectories
-    all_component_groups = []
-    all_componentrefs = [componentref]
+    all_component_groups = [component_groups]
+    all_componentrefs = {componentref}
     for dirpath, _, filenames in os.walk(rootDirectory):
-        dir_structure, comp_group, componentref = generate_directory_and_components(dirpath, absPath)
+        dir_structure, comp_group, comp_ref = generate_directory_and_components(dirpath, absPath)
         if comp_group:
             all_component_groups.append(comp_group)
-            if not componentref in all_componentrefs:
-                all_componentrefs.append(componentref)
+            all_componentrefs.add(comp_ref)
 
     return directory_structure, "\n".join(all_component_groups), "\n".join(all_componentrefs)
 
-# Function to generate the final XML with directory structure and component groups
 def generate_final_xml(rootDirectory, template_file="template.wxs"):
-    # Generate the directory and component group structures
-    directory_structure, component_groups, comprefs = createStructure(rootDirectory)
-    
-    # Load the template file
+    directory_structure, component_groups, comprefs = create_structure(rootDirectory)
+
     with open(template_file, "r") as f:
         template_data = f.read()
-    
-    # Replace <EXTRA/> with the generated component groups and <DIRECTORY_STRUCTURE/> with the directory structure
+
     final_data = template_data.replace("<COMPGROUPREFS/>", comprefs)
     final_data = final_data.replace("<EXTRA/>", component_groups)
     final_data = final_data.replace("<DIRECTORY_STRUCTURE/>", directory_structure)
     
     return final_data
 
-
-def generate_component_entries(file_paths):
-    entries = []
-    for file_path in file_paths:
-        # Extract the file name from the path
-        
-        # Generate a new GUID
-        
-        
-        # Format the component entry
-        entry = generate_entry(file_path)
-        # if "quantized" in file_path:
-        #     print(file_path)
-        #     print(entry)
-        entries.append(entry)
-    
-    return entries
-
-
-    return entry
-def contains_file(currentFiles, file):
-    for currentFile in currentFiles:
-        if file == os.path.basename( currentFile):
-            return True
-    return False
-def get_all_files(source_directory):
-    all_files = []
-    exclude = []
-    # Walk through the directory tree
-    for root, dirs, files in os.walk(os.path.abspath( source_directory)):
-        for file in files:
-            # Construct full file path and add to the list
-            
-            baseName = os.path.basename(file)
-            shouldContinue = True
-            for ext in exclude:
-                if ext in baseName:
-                    shouldContinue = False
-                    break
-            if shouldContinue:
-                if not contains_file(all_files, baseName):
-                    file_path = os.path.join(root, file)
-                    all_files.append(file_path)
-    return all_files
-
-
-
-
-
-
-
-
 def get_target_runtime():
-    # Determine the OS platform
     os_platform = "win" if platform.system().lower() == "windows" else None
     if os_platform is None:
         print("Unsupported OS")
         sys.exit(1)
 
-    # Determine architecture
     arch_map = {
         "AMD64": "x64",
         "x86": "x86",
@@ -212,7 +154,7 @@ def delete_non_matching_runtimes(runtimes_path, target_runtime):
         if os.path.isdir(folder_path) and folder_name.lower() != target_runtime.lower():
             print(f"Deleting non-matching runtime folder: {folder_name}")
             shutil.rmtree(folder_path)
-            
+
 
 
 

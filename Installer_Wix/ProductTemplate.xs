@@ -20,9 +20,9 @@
 
 				<COMPGROUPREFS/>
 
-				<EXTRA/>
 				
         </Feature>
+		<EXTRA/>
 
 		<Property Id="WIXUI_INSTALLDIR" Value="UAIMODULE" />
 

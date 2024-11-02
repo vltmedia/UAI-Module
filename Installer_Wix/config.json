@@ -12,7 +12,7 @@
         },
         {
             "source": "CLI.exe",
-            "destination": "[UAIMODULE]GUI.exe",
+            "destination": "[UAIMODULE]CLI.exe",
             "label": "UAI - CLI- Face Parser",
             "productName": "UAIFaceParserCLI",
             "registryPath": "Software\\UAI\\FaceParserCLI",

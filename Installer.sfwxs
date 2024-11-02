@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define GUI_TargetDir=$(var.GUI.TargetDir)?>
+	<Product Id="*" Name="UAI - Face Parsing" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="da3f1537-3b94-4d06-be8c-28084fe97eb2">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="UAI - Face Parsing" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="INSTALLFOLDER_files" />
+		</Feature>
+	</Product>
+	<Fragment>
+	  <ComponentGroup Id="INSTALLFOLDER_files" Directory="INSTALLFOLDER">
+	    <Component Id="UAIBrainServer.ico" Guid="faad6652-bf3c-413c-b7a0-d665dab0ae0f">
+	      <File Id="UAIBrainServer.ico" Name="UAIBrainServer.ico" Source="$(var.GUI_TargetDir)UAIBrainServer.ico" />
+	    </Component>
+	    <Component Id="GUI.runtimeconfig.json" Guid="cc0e76ab-8bb6-4f5b-9441-19a2169414c8">
+	      <File Id="GUI.runtimeconfig.json" Name="GUI.runtimeconfig.json" Source="$(var.GUI_TargetDir)GUI.runtimeconfig.json" />
+	    </Component>
+	    <Component Id="Module.pdb" Guid="f1a542a9-0fc0-453e-b88a-49978f0dd3c5">
+	      <File Id="Module.pdb" Name="Module.pdb" Source="$(var.GUI_TargetDir)Module.pdb" />
+	    </Component>
+	    <Component Id="Newtonsoft.Json.dll" Guid="b395c93e-e7ce-4625-8299-4f177bf44219">
+	      <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.GUI_TargetDir)Newtonsoft.Json.dll" />
+	    </Component>
+	    <Component Id="CommandLine.dll" Guid="0dd1e78c-d226-4fad-bc30-5698dda13140">
+	      <File Id="CommandLine.dll" Name="CommandLine.dll" Source="$(var.GUI_TargetDir)CommandLine.dll" />
+	    </Component>
+	    <Component Id="TinyEXR.NET.dll" Guid="6de66204-fe6a-495e-866a-35adba502ce9">
+	      <File Id="TinyEXR.NET.dll" Name="TinyEXR.NET.dll" Source="$(var.GUI_TargetDir)TinyEXR.NET.dll" />
+	    </Component>
+	    <Component Id="Emgu.CV.dll" Guid="1841267e-395a-4e83-86ac-6c96da104447">
+	      <File Id="Emgu.CV.dll" Name="Emgu.CV.dll" Source="$(var.GUI_TargetDir)Emgu.CV.dll" />
+	    </Component>
+	    <Component Id="GUI.dll" Guid="b412e7ea-9da2-4c09-987b-636b8c18c4c8">
+	      <File Id="GUI.dll" Name="GUI.dll" Source="$(var.GUI_TargetDir)GUI.dll" />
+	    </Component>
+	    <Component Id="Microsoft.ML.OnnxRuntime.dll" Guid="6dee6246-d6b0-4405-92d5-492b875bdbdc">
+	      <File Id="Microsoft.ML.OnnxRuntime.dll" Name="Microsoft.ML.OnnxRuntime.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.OnnxRuntime.dll" />
+	    </Component>
+	    <Component Id="System.Drawing.Common.dll" Guid="d14c0838-cc34-40a4-8c46-8487343ed736">
+	      <File Id="System.Drawing.Common.dll" Name="System.Drawing.Common.dll" Source="$(var.GUI_TargetDir)System.Drawing.Common.dll" />
+	    </Component>
+	    <Component Id="UAI_ONNX.dll" Guid="5b347a43-1e5c-4111-98b0-5327f6897e4f">
+	      <File Id="UAI_ONNX.dll" Name="UAI_ONNX.dll" Source="$(var.GUI_TargetDir)UAI_ONNX.dll" />
+	    </Component>
+	    <Component Id="Module.dll" Guid="3c4e4b56-df07-4c94-9de9-5f830dd694f4">
+	      <File Id="Module.dll" Name="Module.dll" Source="$(var.GUI_TargetDir)Module.dll" />
+	    </Component>
+	    <Component Id="CLI.pdb" Guid="cf534224-3812-421b-aa49-010b1fac0fa8">
+	      <File Id="CLI.pdb" Name="CLI.pdb" Source="$(var.GUI_TargetDir)CLI.pdb" />
+	    </Component>
+	    <Component Id="CLI.dll" Guid="a68cf997-4ed4-4167-9532-ead875106ce2">
+	      <File Id="CLI.dll" Name="CLI.dll" Source="$(var.GUI_TargetDir)CLI.dll" />
+	    </Component>
+	    <Component Id="CLI.runtimeconfig.json" Guid="03bf56ea-9a8e-416b-a024-9b4c9d91a487">
+	      <File Id="CLI.runtimeconfig.json" Name="CLI.runtimeconfig.json" Source="$(var.GUI_TargetDir)CLI.runtimeconfig.json" />
+	    </Component>
+	    <Component Id="Microsoft.Win32.SystemEvents.dll" Guid="edf36f63-e95a-49e9-92a5-f5403600bafd">
+	      <File Id="Microsoft.Win32.SystemEvents.dll" Name="Microsoft.Win32.SystemEvents.dll" Source="$(var.GUI_TargetDir)Microsoft.Win32.SystemEvents.dll" />
+	    </Component>
+	    <Component Id="GUI.pdb" Guid="35a53c2a-880f-45b8-867b-798c0736d87a">
+	      <File Id="GUI.pdb" Name="GUI.pdb" Source="$(var.GUI_TargetDir)GUI.pdb" />
+	    </Component>
+	  </ComponentGroup>
+	</Fragment>
+
+</Wix>

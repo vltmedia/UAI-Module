@@ -1,0 +1,24 @@
+{
+    "shortcutMapping":[
+        {
+            "source": "GUI.exe",
+            "destination": "[UAIMODULE]GUI.exe",
+            "label": "UAI - Face Parser",
+            "productName": "UAIFaceParserGUI",
+            "registryPath": "Software\\UAI\\FaceParserGUI",
+            "targetDirectory": "UAIMODULE",
+            "workingDirectory": "UAIMODULE",
+            "icon": "UAIBrainServer"
+        },
+        {
+            "source": "CLI.exe",
+            "destination": "[UAIMODULE]GUI.exe",
+            "label": "UAI - CLI- Face Parser",
+            "productName": "UAIFaceParserCLI",
+            "registryPath": "Software\\UAI\\FaceParserCLI",
+            "targetDirectory": "UAIMODULE",
+            "workingDirectory": "UAIMODULE",
+            "icon": "UAIBrainServer"
+        }
+    ]
+}

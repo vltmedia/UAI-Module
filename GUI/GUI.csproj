@@ -7,6 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>UAIBrainServer.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,5 +23,15 @@
   <ItemGroup>
     <ProjectReference Include="..\CLI\CLI.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PostBuild.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call &quot;$(ProjectDir)PostBuild.bat&quot; &quot;$(TargetDir)&quot;" />
+  </Target>
 
 </Project>

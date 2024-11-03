@@ -137,6 +137,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "UAI : Face Parsing";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)inputImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)resultImage).EndInit();

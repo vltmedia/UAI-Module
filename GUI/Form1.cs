@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using UAI.AI.ONNX.FaceParser;
+using SharpREST;
 
 namespace GUI
 {
@@ -8,12 +9,12 @@ namespace GUI
     {
         public static FaceParserRuntime runtime;
         public static string[] args = new string[] { };
-        public static FaceParserArgumentsOptions argumentsOptions { get { return FaceParserRuntime.args;  } set { FaceParserRuntime.args = value; } }
+        public static FaceParserArgumentsOptions argumentsOptions { get { return FaceParserRuntime.args; } set { FaceParserRuntime.args = value; } }
         public Form1()
         {
             InitializeComponent();
             args = new string[] { "-m", "./model/model_quantized.onnx" };
-             runtime = new FaceParserRuntime(args);
+            runtime = new FaceParserRuntime(args);
             argumentsOptions = new FaceParserArgumentsOptions();
             argumentsOptions.modelPath = $"{AppContext.BaseDirectory}/model/model_quantized.onnx";
 
@@ -37,15 +38,24 @@ namespace GUI
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            RestServer.routes.Add(new RestRouteBase(RestRequestType.GET, "/test", (request) =>
+            {
+                Console.WriteLine("GET request received");
+                RestServer.ProcessResult(request, "Hey this is the response!", 200);
+            }));
+
+            await Task.Run(() => RestServer.Instance.StartServer(8088));
+
+            //RestServer.Instance.StartServer(8088);
 
         }
 
         private async void buttonRunProcess_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            string tempDirectory = Path.GetFullPath( $"{Path.GetTempPath()}UAI/Temp/{id}");
+            string tempDirectory = Path.GetFullPath($"{Path.GetTempPath()}UAI/Temp/{id}");
             Directory.CreateDirectory(tempDirectory);
             string inputPath = $"{tempDirectory}/input.jpg";
 
@@ -64,6 +74,12 @@ namespace GUI
             // open the output directory
             Process.Start("explorer.exe", @tempDirectory);
 
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RestServer.Instance.StopServer();
 
         }
     }

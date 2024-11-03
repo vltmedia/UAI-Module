@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="UAI_ONNX" Version="1.0.4" />
+    <PackageReference Include="UAI_ONNX" Version="1.0.7.5" />
   </ItemGroup>
 
 
@@ -50,7 +50,7 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="call &quot;$(ProjectDir)DownloadRequirements.bat&quot;" />
+    <!--<Exec Command="call &quot;$(ProjectDir)DownloadRequirements.bat&quot;" />-->
   </Target>
 
 </Project>

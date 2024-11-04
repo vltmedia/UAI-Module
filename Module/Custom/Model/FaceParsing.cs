@@ -1,5 +1,6 @@
 using Microsoft.ML.OnnxRuntime;
 using System.Drawing;
+using UAI.Common;
 using UAI.Common.AI;
 namespace UAI.AI.ONNX.FaceParser
 {
@@ -8,7 +9,7 @@ public class FaceParsing : OnnxImageProcessor
     public override string[] labels { get { return labels_; } set { labels_ = value; } }
 
     public string[] labels_ = new string[] { "Background", "Skin", "Nose", "Glasses", "Left Eye", "Right Eye", "Left Brow", "Right Brow",   "Left Ear", "Right Ear",
-          "Mouth", "Upper Lip", "Lower Lip","Hair" , "Hat", "Earring", "Necklace", "Clothing", "Clothing2", "Face" };
+          "Mouth", "Upper Lip", "Lower Lip","Hair" , "Hat", "Earring", "Necklace", "Clothing", "Clothing2", "Face", "FaceComposite" };
 
         public FaceParsing(string modelPath) : base(modelPath)
         {
@@ -52,13 +53,19 @@ public class FaceParsing : OnnxImageProcessor
             // Process the Output Data
             var rest = GetResultTensors(results);
             List<Bitmap> bitmaps = ConvertTensorsToBitmaps(inputImageSize, rest);
-            List<Bitmap> targetMasks = new List<Bitmap>() { bitmaps[1],bitmaps[11],bitmaps[12], bitmaps[13], bitmaps[2], bitmaps[4], bitmaps[5], bitmaps[10], bitmaps[8], bitmaps[9],  bitmaps[7], bitmaps[6] };
+            List<Bitmap> targetMasks = new List<Bitmap>() { bitmaps[1],bitmaps[11],bitmaps[12], bitmaps[13],bitmaps[3], bitmaps[2], bitmaps[4], bitmaps[5], bitmaps[10], bitmaps[8], bitmaps[9],  bitmaps[7], bitmaps[6] };
             Bitmap compositeImage = CreateCompositeMask(targetMasks);
             compositeImage = SubtractMask(compositeImage, bitmaps[0]);
             compositeImage = SubtractMask(compositeImage, bitmaps[18]);
             compositeImage = SubtractMask(compositeImage, bitmaps[17]);
             compositeImage = ResizeAndSmooth(compositeImage, compositeImage.Width, compositeImage.Height);
+            if (FaceParserRuntime.args.blurRadius > 0)
+            {
+                compositeImage = ImageProcessor.ApplyGaussianBlur(compositeImage, FaceParserRuntime.args.blurRadius);
+            }
+            var faceComposite = ApplyChannelAsAlpha(inputTexture, compositeImage, 2);
             bitmaps.Add(compositeImage);
+            bitmaps.Add(faceComposite);
             // Save the Masks and JSON if the options are set
             ProcessSaveMasks(bitmaps, outputPath, FaceParserRuntime.args.saveMasks);
             ProcessJSONOutput(bitmaps, outputPath +"/" + Path.GetFileNameWithoutExtension(FaceParserRuntime.args.inputPath) + ".json", FaceParserRuntime.args.saveJson);

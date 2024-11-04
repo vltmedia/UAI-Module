@@ -5,6 +5,8 @@ import shutil
 import sys
 import platform
 import json
+
+from pydantic import FilePath
 # Dictionaries to track unique IDs
 unique_ids = {}
 component_group_ids = set()
@@ -20,6 +22,7 @@ indx = 0
 
 def generate_entry(file_path, directory_id, absPath):
     global indx
+    file_nameraw = os.path.basename(file_path)
     file_name = os.path.basename(file_path).replace(" ", "_").replace("-", "_")
     isolatedName = file_path.replace(absPath, '')
 
@@ -44,11 +47,16 @@ def generate_entry(file_path, directory_id, absPath):
             <RegistryValue Root="HKCU" Key="{shortcut['registryPath']}" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
             '''
         indx += 1
-    
-    
+    name_ = file_name
+    if "-" in file_nameraw:
+        print(1,file_path)
+        print(2,file_name)
+        name_ = os.path.basename( isolatedName)
+        print(3,isolatedName)
+        print(4, name_)
 
     entry = f'''<Component Id="GUI.{file_name}_{unique_suffix}" Guid="{str(uuid.uuid4())}" Directory="{directory_id}" Win64="yes">
-    <File Id="GUI.{file_name}_{unique_suffix}" Name="{file_name}" Source="$(var.GUI_TargetDir){isolatedName}" />
+    <File Id="GUI.{file_name}_{unique_suffix}" Name="{name_}" Source="$(var.GUI_TargetDir){isolatedName}" />
     {shortcutData}
 </Component>'''
     return entry

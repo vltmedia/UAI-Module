@@ -39,6 +39,7 @@
             buttonSaveImage = new Button();
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)inputImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)resultImage).BeginInit();
             SuspendLayout();
@@ -120,12 +121,22 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button1
+            // 
+            button1.Location = new Point(291, 291);
+            button1.Name = "button1";
+            button1.Size = new Size(99, 23);
+            button1.TabIndex = 8;
+            button1.Text = "Run Process";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(10, 10, 10);
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(buttonSaveImage);
             Controls.Add(buttonSaveMasks);
             Controls.Add(label1);
@@ -157,5 +168,6 @@
         private Button buttonSaveImage;
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
+        private Button button1;
     }
 }

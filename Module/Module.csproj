@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="UAI_ONNX" Version="1.0.7.5" />
+    <PackageReference Include="UAI_ONNX" Version="1.0.8.1" />
   </ItemGroup>
 
 

@@ -4,7 +4,7 @@
 	<?define APP_NAME="FaceParse"?>
 	<?define GUI_TargetDir=$(var.GUI.TargetDir)?>
 
-    <Product Id="*" Name="UAI - Face Parsing" Language="1033" Version="1.0.0.0" Manufacturer="UAI" UpgradeCode="da3f1537-3b94-4d06-be8c-28084fe97eb2">
+    <Product Id="*" Name="UAI - Face Parsing" Language="1033" Version="1.0.0.2" Manufacturer="UAI" UpgradeCode="da3f1537-3b94-4d06-be8c-28084fe97eb2">
 		<Package InstallScope="perMachine" InstallerVersion="200" Compressed="yes" Platform="x64"  />
 		<WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
 		<Icon Id="UAIBrainServer" SourceFile="UAIBrainServer.ico" />

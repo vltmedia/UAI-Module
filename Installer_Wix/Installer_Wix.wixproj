@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>82108591-0dc9-4f88-85e0-e8f6f2e1f10c</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Installer_Wix</OutputName>
+    <OutputName>UAI_FaceParse_Installer</OutputName>
     <OutputType>Package</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">

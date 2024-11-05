@@ -18,6 +18,7 @@
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - Windows OS (for MSI creation and GUI development)
 - Visual Studio for enhanced development experience
+- Git LFS (Large File Storage) for managing large files
 
 ### Installation
 
@@ -26,6 +27,7 @@
   ```bash
   git clone https://github.com/UAISoftwareInc/UAI-Module.git
   cd UAI-Module
+  git lfs fetch --all
   ```
   
 2. **Restore NuGet Packages**

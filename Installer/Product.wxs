@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	
+	<?define APP_NAME="FaceParse"?>
+	<?define GUI_TargetDir=$(var.GUI.TargetDir)?>
+
+    <Product Id="*" Name="UAI - Face Parsing" Language="1033" Version="1.0.0.2" Manufacturer="UAI" UpgradeCode="da3f1537-3b94-4d06-be8c-28084fe97eb2">
+		<Package InstallScope="perMachine" InstallerVersion="200" Compressed="yes" Platform="x64"  />
+		<WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+		<Icon Id="UAIBrainServer" SourceFile="UAIBrainServer.ico" />
+
+		<MajorUpgrade DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+
+		<MediaTemplate EmbedCab="yes" />
+
+		<?include InstallationStages.wxi?>
+
+
+			<Feature Id="MainFeature" Title="UAI - Face Parser" Level="1">
+
+				<ComponentGroupRef Id="Components_UAIMODULE"/>
+
+
+<ComponentGroupRef Id="Components_native_e711f7d4"/>
+<ComponentGroupRef Id="Components_model_9a5da536"/>
+
+				
+        </Feature>
+		<ComponentGroup Id="Components_UAIMODULE">
+<Component Id="GUI.Microsoft.Extensions.Configuration.Binder.dll_32e6a4f5" Guid="4d86792d-c9ed-44f5-8742-f9811bfcc066" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.Binder.dll_32e6a4f5" Name="Microsoft.Extensions.Configuration.Binder.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.Binder.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.CommandLine.dll_a9491578" Guid="07200c1f-dfe6-4f6a-b55c-929041a48739" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.CommandLine.dll_a9491578" Name="Microsoft.Extensions.Configuration.CommandLine.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.CommandLine.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.Abstractions.dll_81ee62ad" Guid="082f1a0a-61ec-4590-b08c-d3aafd067f1d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.Abstractions.dll_81ee62ad" Name="Microsoft.Extensions.Configuration.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Emgu.CV.dll_38f04179" Guid="18759d58-24ca-4be8-9f8d-b6eb0ad2dbc3" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Emgu.CV.dll_38f04179" Name="Emgu.CV.dll" Source="$(var.GUI_TargetDir)Emgu.CV.dll" />
+    
+</Component>
+<Component Id="GUI.CommandLine.dll_f7d2d9a3" Guid="4b99a0c3-82bb-4f5b-8e94-e8fb27002bf7" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CommandLine.dll_f7d2d9a3" Name="CommandLine.dll" Source="$(var.GUI_TargetDir)CommandLine.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.dll_c164fa0b" Guid="92f58875-3cf9-40ae-ade8-d7317bd1fae4" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.dll_c164fa0b" Name="Microsoft.Extensions.Configuration.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.EnvironmentVariables.dll_a050deea" Guid="9716b237-214c-41e6-9882-b993b2f70284" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.EnvironmentVariables.dll_a050deea" Name="Microsoft.Extensions.Configuration.EnvironmentVariables.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.FileExtensions.dll_6a3b34e6" Guid="5ebee9c6-0f1d-442c-8995-5100574b040c" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.FileExtensions.dll_6a3b34e6" Name="Microsoft.Extensions.Configuration.FileExtensions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.Json.dll_55ed5fb5" Guid="154d1928-7e01-4bc5-b59f-1c31d4ea6e05" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.Json.dll_55ed5fb5" Name="Microsoft.Extensions.Configuration.Json.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.Json.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.DependencyInjection.Abstractions.dll_8530803f" Guid="1b62081a-11db-4bbf-94b4-3ed4c7afd181" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.DependencyInjection.Abstractions.dll_8530803f" Name="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Configuration.UserSecrets.dll_ea4f0312" Guid="f02e90df-d524-4527-a206-533264cb5992" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Configuration.UserSecrets.dll_ea4f0312" Name="Microsoft.Extensions.Configuration.UserSecrets.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Configuration.UserSecrets.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.DependencyInjection.dll_1014aac6" Guid="6c201d09-5374-448a-b870-99192fff8e2e" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.DependencyInjection.dll_1014aac6" Name="Microsoft.Extensions.DependencyInjection.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.DependencyInjection.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Diagnostics.dll_42648ee1" Guid="a3e2a41b-e2e3-4e45-b393-d7ea1f8a8401" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Diagnostics.dll_42648ee1" Name="Microsoft.Extensions.Diagnostics.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Diagnostics.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Diagnostics.Abstractions.dll_1a2e24e0" Guid="3eb5cc17-72d1-49d4-8567-dd709f59fb07" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Diagnostics.Abstractions.dll_1a2e24e0" Name="Microsoft.Extensions.Diagnostics.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.FileProviders.Abstractions.dll_65504978" Guid="f63f59e5-5d9c-4c17-9b0d-4912c43afde0" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.FileProviders.Abstractions.dll_65504978" Name="Microsoft.Extensions.FileProviders.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.FileProviders.Physical.dll_143a3e24" Guid="6f52b52d-08f1-496e-8460-4591fe98a825" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.FileProviders.Physical.dll_143a3e24" Name="Microsoft.Extensions.FileProviders.Physical.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.FileProviders.Physical.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.FileSystemGlobbing.dll_d067856c" Guid="fef7e7c1-e8f0-4864-8dbe-8279629846e0" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.FileSystemGlobbing.dll_d067856c" Name="Microsoft.Extensions.FileSystemGlobbing.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.FileSystemGlobbing.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Hosting.dll_2002bbad" Guid="3df75c8e-9fd8-492f-a214-400101873013" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Hosting.dll_2002bbad" Name="Microsoft.Extensions.Hosting.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Hosting.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Hosting.Abstractions.dll_81d88835" Guid="1dba3018-4d5b-4ee4-8a89-fcd1553fdc3e" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Hosting.Abstractions.dll_81d88835" Name="Microsoft.Extensions.Hosting.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Hosting.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.dll_f08ed8e2" Guid="f7161afa-a4f5-420d-8aa7-0f0d1692253c" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.dll_f08ed8e2" Name="Microsoft.Extensions.Logging.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.Abstractions.dll_1dc93497" Guid="035bf85a-da7d-4d76-b564-91d46f1ea301" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.Abstractions.dll_1dc93497" Name="Microsoft.Extensions.Logging.Abstractions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.Abstractions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.Configuration.dll_28fef7d9" Guid="85e5d757-5df6-43a0-af8a-6370bbf867af" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.Configuration.dll_28fef7d9" Name="Microsoft.Extensions.Logging.Configuration.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.Configuration.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.Console.dll_26bac67f" Guid="c5b2838b-a970-451d-86b6-7fa73a976fe5" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.Console.dll_26bac67f" Name="Microsoft.Extensions.Logging.Console.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.Console.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.Debug.dll_db79d47b" Guid="5a603847-d4e8-4c97-8dec-16e5834ef430" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.Debug.dll_db79d47b" Name="Microsoft.Extensions.Logging.Debug.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.Debug.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.EventLog.dll_829015f6" Guid="48b4e74f-360f-4219-9ac8-34fbb4a524b0" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.EventLog.dll_829015f6" Name="Microsoft.Extensions.Logging.EventLog.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.EventLog.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Logging.EventSource.dll_37933d58" Guid="cc3aeae7-d31b-46d6-a4e4-89e7b5876901" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Logging.EventSource.dll_37933d58" Name="Microsoft.Extensions.Logging.EventSource.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Logging.EventSource.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Options.dll_c6033149" Guid="96d0d85e-5889-42d8-9e04-80f37cf337e8" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Options.dll_c6033149" Name="Microsoft.Extensions.Options.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Options.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Options.ConfigurationExtensions.dll_0b633bc7" Guid="8ace9521-a017-4817-bc29-a77b6f2720e4" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Options.ConfigurationExtensions.dll_0b633bc7" Name="Microsoft.Extensions.Options.ConfigurationExtensions.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.Extensions.Primitives.dll_9f206b45" Guid="eb6a89df-e019-410f-887d-51d766ee3af4" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.Extensions.Primitives.dll_9f206b45" Name="Microsoft.Extensions.Primitives.dll" Source="$(var.GUI_TargetDir)Microsoft.Extensions.Primitives.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.Core.dll_b09b4487" Guid="4a27755b-8f5f-4767-b4a9-e3c505dc0709" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.Core.dll_b09b4487" Name="Microsoft.ML.Core.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.Core.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.Data.dll_e73e5cc6" Guid="00a1d1e1-9bfb-42e2-941a-ee06004e3b5b" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.Data.dll_e73e5cc6" Name="Microsoft.ML.Data.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.Data.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.KMeansClustering.dll_375f2dbc" Guid="c75cfb40-6375-47ed-8982-8cc4f1ea5a87" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.KMeansClustering.dll_375f2dbc" Name="Microsoft.ML.KMeansClustering.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.KMeansClustering.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.PCA.dll_4e1beaa9" Guid="5fbc1be6-2c57-4fca-a6f3-7db6293bedfa" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.PCA.dll_4e1beaa9" Name="Microsoft.ML.PCA.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.PCA.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.StandardTrainers.dll_529ada87" Guid="9a0d2c0f-e280-4617-bd4f-9d69c63b19db" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.StandardTrainers.dll_529ada87" Name="Microsoft.ML.StandardTrainers.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.StandardTrainers.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.Transforms.dll_f3ee3130" Guid="6a850e5b-6307-4811-a64c-63690c2523b8" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.Transforms.dll_f3ee3130" Name="Microsoft.ML.Transforms.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.Transforms.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.dll_1b1ca879" Guid="c2ebcf85-7328-43ba-b1dd-8be30777c5d2" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.dll_1b1ca879" Name="Microsoft.ML.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.CpuMath.dll_b6664269" Guid="6a59a72c-3752-48ef-9424-69190d84b8f2" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.CpuMath.dll_b6664269" Name="Microsoft.ML.CpuMath.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.CpuMath.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.DataView.dll_b8bf9ada" Guid="abc1268e-c6ea-44fa-9359-e5ae48b4785d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.DataView.dll_b8bf9ada" Name="Microsoft.ML.DataView.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.DataView.dll" />
+    
+</Component>
+<Component Id="GUI.Microsoft.ML.OnnxRuntime.dll_7d54b87f" Guid="24f94c1e-d6e5-43ab-93f1-92b83c42756f" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Microsoft.ML.OnnxRuntime.dll_7d54b87f" Name="Microsoft.ML.OnnxRuntime.dll" Source="$(var.GUI_TargetDir)Microsoft.ML.OnnxRuntime.dll" />
+    
+</Component>
+<Component Id="GUI.Newtonsoft.Json.dll_4677ec46" Guid="f0da05f8-861c-4f0c-af7f-9a08a62c5f84" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Newtonsoft.Json.dll_4677ec46" Name="Newtonsoft.Json.dll" Source="$(var.GUI_TargetDir)Newtonsoft.Json.dll" />
+    
+</Component>
+<Component Id="GUI.SharpREST.dll_f5c7ef59" Guid="0398fc74-d32b-4fcb-a8cf-4191fa075427" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.SharpREST.dll_f5c7ef59" Name="SharpREST.dll" Source="$(var.GUI_TargetDir)SharpREST.dll" />
+    
+</Component>
+<Component Id="GUI.System.Diagnostics.EventLog.dll_d8ea2737" Guid="91809fe9-ae1a-47fe-afcc-655c552db06e" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.System.Diagnostics.EventLog.dll_d8ea2737" Name="System.Diagnostics.EventLog.dll" Source="$(var.GUI_TargetDir)System.Diagnostics.EventLog.dll" />
+    
+</Component>
+<Component Id="GUI.System.Drawing.Common.dll_757da0ad" Guid="4be736f9-6550-43c3-9ed7-8c564342e286" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.System.Drawing.Common.dll_757da0ad" Name="System.Drawing.Common.dll" Source="$(var.GUI_TargetDir)System.Drawing.Common.dll" />
+    
+</Component>
+<Component Id="GUI.System.Numerics.Tensors.dll_90a3ac6e" Guid="83b44266-d919-4c8a-a6ce-f67b2c4c363d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.System.Numerics.Tensors.dll_90a3ac6e" Name="System.Numerics.Tensors.dll" Source="$(var.GUI_TargetDir)System.Numerics.Tensors.dll" />
+    
+</Component>
+<Component Id="GUI.TinyEXR.NET.dll_04fc18aa" Guid="b6d8b549-826d-414f-ac6b-b65ce2da4e3d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.TinyEXR.NET.dll_04fc18aa" Name="TinyEXR.NET.dll" Source="$(var.GUI_TargetDir)TinyEXR.NET.dll" />
+    
+</Component>
+<Component Id="GUI.UAI_ONNX.dll_b80ac2f3" Guid="7903fcaa-31dd-4367-b828-51d4773b7043" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.UAI_ONNX.dll_b80ac2f3" Name="UAI_ONNX.dll" Source="$(var.GUI_TargetDir)UAI_ONNX.dll" />
+    
+</Component>
+<Component Id="GUI.CLI.dll_e28e048f" Guid="6758dbdf-ebf5-4ea4-a862-9118b9a21bdc" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CLI.dll_e28e048f" Name="CLI.dll" Source="$(var.GUI_TargetDir)CLI.dll" />
+    
+</Component>
+<Component Id="GUI.Module.dll_b9b60f1b" Guid="a2f3d028-47d2-4f94-a74c-c39e0aa18cd3" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Module.dll_b9b60f1b" Name="Module.dll" Source="$(var.GUI_TargetDir)Module.dll" />
+    
+</Component>
+<Component Id="GUI.CLI.pdb_ffd59c69" Guid="f5bf896b-5cc4-4ba2-86dc-822634d88cbe" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CLI.pdb_ffd59c69" Name="CLI.pdb" Source="$(var.GUI_TargetDir)CLI.pdb" />
+    
+</Component>
+<Component Id="GUI.Module.pdb_e4c8a72c" Guid="f6cc3df8-7f99-404c-97e2-5c5a0532bd5d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.Module.pdb_e4c8a72c" Name="Module.pdb" Source="$(var.GUI_TargetDir)Module.pdb" />
+    
+</Component>
+<Component Id="GUI.CLI.deps.json_74a99ce0" Guid="50a5aefa-aa69-438f-a3ed-ca50d0d9edc3" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CLI.deps.json_74a99ce0" Name="CLI.deps.json" Source="$(var.GUI_TargetDir)CLI.deps.json" />
+    
+</Component>
+<Component Id="GUI.libusb_1.0.dll_d6d977bd" Guid="19cdb2fd-90df-4eb5-ad97-7af302f92525" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.libusb_1.0.dll_d6d977bd" Name="libusb-1.0.dll" Source="$(var.GUI_TargetDir)libusb-1.0.dll" />
+    
+</Component>
+<Component Id="GUI.opencv_videoio_ffmpeg490_64.dll_fa0476a4" Guid="0532c364-8313-41e9-b29f-b8b245721251" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.opencv_videoio_ffmpeg490_64.dll_fa0476a4" Name="opencv_videoio_ffmpeg490_64.dll" Source="$(var.GUI_TargetDir)opencv_videoio_ffmpeg490_64.dll" />
+    
+</Component>
+<Component Id="GUI.UAIBrainServer.ico_3174e16c" Guid="5b2a5ab6-298f-4b7f-98d8-0073e156505d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.UAIBrainServer.ico_3174e16c" Name="UAIBrainServer.ico" Source="$(var.GUI_TargetDir)UAIBrainServer.ico" />
+    
+</Component>
+<Component Id="GUI.cvextern.dll_aea78b9b" Guid="d635aa5e-5953-4f98-8043-10b4d507386f" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.cvextern.dll_aea78b9b" Name="cvextern.dll" Source="$(var.GUI_TargetDir)cvextern.dll" />
+    
+</Component>
+<Component Id="GUI.CLI.runtimeconfig.json_36153763" Guid="1266d3f6-9cbe-40cd-b454-8b6d764a11ec" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CLI.runtimeconfig.json_36153763" Name="CLI.runtimeconfig.json" Source="$(var.GUI_TargetDir)CLI.runtimeconfig.json" />
+    
+</Component>
+<Component Id="GUI.CLI.exe_9cf9a8f9" Guid="18844dcc-3941-4b47-842c-63b055b6dd9d" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.CLI.exe_9cf9a8f9" Name="CLI.exe" Source="$(var.GUI_TargetDir)CLI.exe" />
+    
+            <Shortcut Id="UAIFaceParserCLI_Shortcut_9cf9a8f9" 
+                    Name="UAI - CLI- Face Parser" 
+                    Directory="ProgramMenuDir"
+                    Target="[UAIMODULE]CLI.exe" 
+                    WorkingDirectory="UAIMODULE" 
+                    Icon="UAIBrainServer" />
+                    
+            <RemoveFolder Id="ProgramMenuDir113_9cf9a8f9" Directory="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\UAI\FaceParserCLI" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+            
+</Component>
+<Component Id="GUI.GUI.exe_3a1cddf2" Guid="9fa65d1a-12f3-4104-a4b1-ce3e61c6d2f3" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.GUI.exe_3a1cddf2" Name="GUI.exe" Source="$(var.GUI_TargetDir)GUI.exe" />
+    
+            <Shortcut Id="UAIFaceParserGUI_Shortcut_3a1cddf2" 
+                    Name="UAI - Face Parser" 
+                    Directory="ProgramMenuDir"
+                    Target="[UAIMODULE]GUI.exe" 
+                    WorkingDirectory="UAIMODULE" 
+                    Icon="UAIBrainServer" />
+                    
+            <RemoveFolder Id="ProgramMenuDir114_3a1cddf2" Directory="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\UAI\FaceParserGUI" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+            
+</Component>
+<Component Id="GUI.PostBuild.bat_794633a0" Guid="95f84269-c828-4ae7-9a18-cb38a86dbe40" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.PostBuild.bat_794633a0" Name="PostBuild.bat" Source="$(var.GUI_TargetDir)PostBuild.bat" />
+    
+</Component>
+<Component Id="GUI.GUI.deps.json_59747bd3" Guid="9069a0e6-ce0c-4934-95b6-61df60d7d3ce" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.GUI.deps.json_59747bd3" Name="GUI.deps.json" Source="$(var.GUI_TargetDir)GUI.deps.json" />
+    
+</Component>
+<Component Id="GUI.GUI.runtimeconfig.json_ba0f15ec" Guid="0ddd54ea-e4b4-4ee4-8ff3-6b772d0b4dae" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.GUI.runtimeconfig.json_ba0f15ec" Name="GUI.runtimeconfig.json" Source="$(var.GUI_TargetDir)GUI.runtimeconfig.json" />
+    
+</Component>
+<Component Id="GUI.GUI.dll_9fd21194" Guid="37d6946f-827d-40d7-9f8b-f1eea657aac2" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.GUI.dll_9fd21194" Name="GUI.dll" Source="$(var.GUI_TargetDir)GUI.dll" />
+    
+</Component>
+<Component Id="GUI.GUI.pdb_6abe1285" Guid="8e803e6b-4278-4a29-9f71-bdc809911231" Directory="UAIMODULE" Win64="yes">
+    <File Id="GUI.GUI.pdb_6abe1285" Name="GUI.pdb" Source="$(var.GUI_TargetDir)GUI.pdb" />
+    
+</Component>
+</ComponentGroup>
+
+
+<ComponentGroup Id="Components_native_e711f7d4">
+<Component Id="GUI.LdaNative.dll_05476cdd" Guid="9600feee-34ce-423b-a7eb-51a03ce8c9e8" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.LdaNative.dll_05476cdd" Name="LdaNative.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\LdaNative.dll" />
+    
+</Component>
+<Component Id="GUI.onnxruntime.dll_ce4461c5" Guid="a4dbabc1-f8d8-44bc-9fbd-6319a22b6155" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime.dll_ce4461c5" Name="onnxruntime.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime.dll" />
+    
+</Component>
+<Component Id="GUI.onnxruntime.lib_7b4ad03b" Guid="050d6f2b-a700-48ec-b9de-ba79aebe7e4d" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime.lib_7b4ad03b" Name="onnxruntime.lib" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime.lib" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_shared.dll_ab8d3f1d" Guid="0d566e89-f9a6-4bae-b853-1267defbb6f1" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_shared.dll_ab8d3f1d" Name="onnxruntime_providers_shared.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_shared.dll" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_shared.lib_e86e5c56" Guid="cfa4ad5b-d6ee-477d-b4d7-388bf08ca61a" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_shared.lib_e86e5c56" Name="onnxruntime_providers_shared.lib" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_shared.lib" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_cuda.dll_3bd25a61" Guid="14689a3f-47b4-4a7a-a3ed-def61922d1f1" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_cuda.dll_3bd25a61" Name="onnxruntime_providers_cuda.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_cuda.dll" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_cuda.lib_520b8a70" Guid="f63db0ff-63dd-4210-85e1-3cb7a3d3739f" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_cuda.lib_520b8a70" Name="onnxruntime_providers_cuda.lib" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_cuda.lib" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_tensorrt.lib_ac297407" Guid="ccebe348-5dcd-4a32-b13b-c6a6cdba6bf0" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_tensorrt.lib_ac297407" Name="onnxruntime_providers_tensorrt.lib" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_tensorrt.lib" />
+    
+</Component>
+<Component Id="GUI.onnxruntime_providers_tensorrt.dll_54dc2956" Guid="4778e797-e20a-4cd6-8256-8ba9d20139d1" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.onnxruntime_providers_tensorrt.dll_54dc2956" Name="onnxruntime_providers_tensorrt.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\onnxruntime_providers_tensorrt.dll" />
+    
+</Component>
+<Component Id="GUI.TinyEXR.Native.dll_12241eb1" Guid="efb260a6-07de-41f0-a753-895559e4a79f" Directory="native_e711f7d4" Win64="yes">
+    <File Id="GUI.TinyEXR.Native.dll_12241eb1" Name="TinyEXR.Native.dll" Source="$(var.GUI_TargetDir)runtimes\win-x64\native\TinyEXR.Native.dll" />
+    
+</Component>
+</ComponentGroup>
+<ComponentGroup Id="Components_model_9a5da536">
+<Component Id="GUI.model_quantized.onnx_9ecef0df" Guid="79206b05-86d7-4185-a309-0d023b9ef543" Directory="model_9a5da536" Win64="yes">
+    <File Id="GUI.model_quantized.onnx_9ecef0df" Name="model_quantized.onnx" Source="$(var.GUI_TargetDir)model\model_quantized.onnx" />
+    
+</Component>
+<Component Id="GUI.model.onnx_64b40603" Guid="56485f7f-4db2-474b-ad38-bc2d9cc3112c" Directory="model_9a5da536" Win64="yes">
+    <File Id="GUI.model.onnx_64b40603" Name="model.onnx" Source="$(var.GUI_TargetDir)model\model.onnx" />
+    
+</Component>
+</ComponentGroup>
+
+		<Property Id="WIXUI_INSTALLDIR" Value="UAIMODULE" />
+
+		<Property Id="POWERSHELLVERSION">
+			<RegistrySearch Id="POWERSHELLVERSION" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\PowerShell\3\PowerShellEngine" Name="PowerShellVersion" />
+		</Property>
+
+		<Property Id="POWERSHELLEXE">
+			<RegistrySearch Id="POWERSHELLEXE" Type="raw" Root="HKLM" Key="SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell" Name="Path" />
+		</Property>
+
+		<Condition Message="You must have PowerShell 3.0 or higher.">
+			<![CDATA[Installed OR (POWERSHELLEXE AND POWERSHELLVERSION >= "3.0")]]>
+		</Condition>
+
+		<Property Id="API_KEY" Value="xxxxxxxxxxxxxxxxxxxxx" Secure="yes">
+			<RegistrySearch Id="RegSearch_API_KEY" Root="HKLM" Key="Software\[Manufacturer]\[ProductName]" Name="API Key" Type="raw" />
+		</Property>
+
+		<CustomAction Id="SaveCmdLineValue_API_KEY" Property="CMDLINE_API_KEY" Value="[API_KEY]" Execute="firstSequence" />
+		<CustomAction Id="SetFromCmdLineValue_API_KEY" Property="API_KEY" Value="[CMDLINE_API_KEY]" Execute="firstSequence" />
+		<InstallUISequence>
+			<Custom Action="SaveCmdLineValue_API_KEY" Before="AppSearch" />
+			<Custom Action="SetFromCmdLineValue_API_KEY" After="AppSearch">
+				<![CDATA[CMDLINE_API_KEY AND (CMDLINE_API_KEY <> "default value")]]>
+			</Custom>
+		</InstallUISequence>
+		<InstallExecuteSequence>
+			<Custom Action="SaveCmdLineValue_API_KEY" Before="AppSearch" />
+			<Custom Action="SetFromCmdLineValue_API_KEY" After="AppSearch">
+				<![CDATA[CMDLINE_API_KEY AND (CMDLINE_API_KEY <> "default value")]]>
+			</Custom>
+		</InstallExecuteSequence>
+
+		<Property Id="MY_INSTALL_LOCATION" Secure="yes">
+			<RegistrySearch Id="RegSearch_MY_INSTALL_LOCATION" Root="HKLM" Key="Software\[Manufacturer]\[ProductName]" Name="My install location" Type="raw" />
+		</Property>
+
+		<CustomAction Id="SaveCmdLineValue_MY_INSTALL_LOCATION" Property="CMDLINE_MY_INSTALL_LOCATION" Value="[MY_INSTALL_LOCATION]" Execute="firstSequence" />
+		<CustomAction Id="SetFromCmdLineValue_MY_INSTALL_LOCATION" Property="MY_INSTALL_LOCATION" Value="[CMDLINE_MY_INSTALL_LOCATION]" Execute="firstSequence" />
+		<InstallUISequence>
+			<Custom Action="SaveCmdLineValue_MY_INSTALL_LOCATION" Before="AppSearch" />
+			<Custom Action="SetFromCmdLineValue_MY_INSTALL_LOCATION" After="AppSearch">
+				CMDLINE_MY_INSTALL_LOCATION
+			</Custom>
+		</InstallUISequence>
+		<InstallExecuteSequence>
+			<Custom Action="SaveCmdLineValue_MY_INSTALL_LOCATION" Before="AppSearch" />
+			<Custom Action="SetFromCmdLineValue_MY_INSTALL_LOCATION" After="AppSearch">
+				CMDLINE_MY_INSTALL_LOCATION
+			</Custom>
+		</InstallExecuteSequence>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFiles64Folder">
+				<Directory Id="MY_INSTALL_LOCATION" Name="UAI">
+
+					<Directory Id="UAIMODULE" Name="$(var.APP_NAME)">
+<Directory Id="runtimes_f420ec12" Name="runtimes">
+<Directory Id="win_x64_9dfba446" Name="win-x64">
+<Directory Id="native_e711f7d4" Name="native">
+</Directory>
+</Directory>
+</Directory>
+<Directory Id="model_9a5da536" Name="model">
+</Directory>
+</Directory>
+
+				</Directory>
+			</Directory>
+
+			<!-- Define Start Menu folder structure -->
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="UAI" />
+            </Directory>
+
+
+		</Directory>
+
+
+		<ComponentGroup Directory="UAIMODULE" Id="ProductComponentGroup">
+			<Component Id="cmp_MyAppendScript_ps1" Win64="yes">
+				<File KeyPath="yes" Source="MyAppendScript.ps1"></File>
+			</Component>
+			<Component Id="cmp_RegistryEntry_API_KEY" Guid="*" Win64="yes">
+				<RegistryKey Root="HKLM" Key="Software\[Manufacturer]\[ProductName]">
+					<RegistryValue KeyPath="yes" Type="string" Name="API Key" Value="[API_KEY]" />
+				</RegistryKey>
+			</Component>
+			<Component Id="cmp_RegistryEntry_UAIMODULE" Guid="*" Win64="yes">
+				<RegistryKey Root="HKLM" Key="Software\[Manufacturer]\[ProductName]">
+					<RegistryValue KeyPath="yes" Type="string" Name="My install location" Value="[UAIMODULE]" />
+				</RegistryKey>
+			</Component>
+				
+			
+
+		</ComponentGroup>
+
+		<SetProperty Id="CA_AppendTextUsingPowerShell_FirstInstall" Before="CA_AppendTextUsingPowerShell_FirstInstall" Sequence="execute" Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -NoProfile -ExecutionPolicy Bypass -File &quot;[UAIMODULE]MyAppendScript.ps1&quot; -installationStage FirstInstall -propertyValue &quot;[API_KEY]&quot; -version &quot;[ProductVersion]&quot; -installLocation &quot;[UAIMODULE] &quot;" />
+
+		<SetProperty Id="CA_AppendTextUsingPowerShell_Upgrading" Before="CA_AppendTextUsingPowerShell_Upgrading" Sequence="execute" Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -NoProfile -ExecutionPolicy Bypass -File &quot;[UAIMODULE]MyAppendScript.ps1&quot; -installationStage Upgrading -propertyValue &quot;[API_KEY]&quot; -version &quot;[ProductVersion]&quot; -installLocation &quot;[UAIMODULE] &quot;" />
+
+		<SetProperty Id="CA_AppendTextUsingPowerShell_Uninstalling" Before="CA_AppendTextUsingPowerShell_Uninstalling" Sequence="execute" Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -NoProfile -ExecutionPolicy Bypass -File &quot;[UAIMODULE]MyAppendScript.ps1&quot; -installationStage Uninstalling -propertyValue &quot;[API_KEY]&quot; -version &quot;[ProductVersion]&quot; -installLocation &quot;[UAIMODULE] &quot;" />
+
+		<SetProperty Id="CA_AppendTextUsingPowerShell_Maintenance" Before="CA_AppendTextUsingPowerShell_Maintenance" Sequence="execute" Value="&quot;[POWERSHELLEXE]&quot; -NoLogo -NonInteractive -NoProfile -ExecutionPolicy Bypass -File &quot;[UAIMODULE]MyAppendScript.ps1&quot; -installationStage Maintenance -propertyValue &quot;[API_KEY]&quot; -version &quot;[ProductVersion]&quot; -installLocation &quot;[UAIMODULE] &quot;" />
+
+		<CustomAction Id="CA_AppendTextUsingPowerShell_FirstInstall" BinaryKey="WixCA" DllEntry="WixQuietExec" Execute="deferred" Return="check" Impersonate="no" />
+		<CustomAction Id="CA_AppendTextUsingPowerShell_Upgrading" BinaryKey="WixCA" DllEntry="WixQuietExec" Execute="deferred" Return="check" Impersonate="no" />
+		<CustomAction Id="CA_AppendTextUsingPowerShell_Uninstalling" BinaryKey="WixCA" DllEntry="WixQuietExec" Execute="deferred" Return="check" Impersonate="no" />
+		<CustomAction Id="CA_AppendTextUsingPowerShell_Maintenance" BinaryKey="WixCA" DllEntry="WixQuietExec" Execute="deferred" Return="check" Impersonate="no" />
+
+		<InstallExecuteSequence>
+			<Custom Action="CA_AppendTextUsingPowerShell_FirstInstall" Before="InstallFinalize">FirstInstall</Custom>
+			<Custom Action="CA_AppendTextUsingPowerShell_Upgrading" Before="InstallFinalize">Upgrading</Custom>
+			<Custom Action="CA_AppendTextUsingPowerShell_Uninstalling" Before="RemoveFiles">Uninstalling</Custom>
+			<Custom Action="CA_AppendTextUsingPowerShell_Maintenance" Before="InstallFinalize">Maintenance</Custom>
+		</InstallExecuteSequence>
+
+		<UI Id="MyWixUI_InstallDir">
+			<UIRef Id="WixUI_InstallDir" />
+
+			<DialogRef Id="MyCustomPropertiesDlg" />
+
+			<Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="MyCustomPropertiesDlg" Order="4">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
+			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MyCustomPropertiesDlg" Order="1">1</Publish>
+		</UI>
+
+		<Feature Id="HelloWorldFeature">
+			<ComponentGroupRef Id="ProductComponentGroup" />
+		</Feature>
+
+	</Product>
+</Wix>

@@ -169,7 +169,7 @@ def delete_non_matching_runtimes(runtimes_path, target_runtime):
 baseDir = os.path.dirname(os.path.abspath(__file__))  
 baseCWD = os.getcwd()
 os.chdir(baseDir)  
-sourcePath = "../GUI/bin/x64/Release/net8.0-windows"
+sourcePath = "../dist/gui/net8.0-windows"
 templateWix = f"{baseDir}/ProductTemplate.xs"
 configJson = f"{baseDir}/config.json"
 configData = json.load(open(configJson, "r"))

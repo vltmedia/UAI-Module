@@ -6,6 +6,22 @@
     <Nullable>enable</Nullable>
     <BaseOutputPath></BaseOutputPath>
     <Platforms>AnyCPU;x64</Platforms>
+    <OutputPath>..\dist\dll\</OutputPath>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>UAI.Modules.AI.FaceParse</PackageId>
+    <Title>UAI.Modules.AI.FaceParse</Title>
+    <Company>UAI Software</Company>
+	  <Authors>UAI Software Inc.</Authors>
+	  <Version>1.0.0</Version>
+	  <Description>A C# Implimentation of Face Parsing using an AI Onnx Model</Description>
+	  <PackageProjectUrl>https://uai.software/docs</PackageProjectUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageTags>UAI;ONNX;Face Parse;Face</PackageTags>
+	  <AssemblyVersion>$(Version)</AssemblyVersion>
+	  <FileVersion>$(Version)</FileVersion>
+	  <PackageLicenseFile>License.md</PackageLicenseFile>
+	  <AssemblyName>UAI.FaceParse</AssemblyName>
+	  
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +43,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\Installer\License.rtf">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="UAI_ONNX" Version="1.0.8.1" />
   </ItemGroup>
 
@@ -43,6 +70,11 @@
     </None>
     <None Update="libusb-1.0.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="License.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
     <None Update="opencv_videoio_ffmpeg490_64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

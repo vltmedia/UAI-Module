@@ -8,14 +8,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>UAI_FaceParse_Installer</OutputName>
     <OutputType>Package</OutputType>
+    
+
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <OutputPath>..\dist\installer\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <OutputPath>..\dist\installer\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
@@ -32,7 +34,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="InstallationStages.wxi" />
-    <Content Include="Installer_Wix.wax" />
+    <Content Include="Installer.wax" />
     <Content Include="License.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

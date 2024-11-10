@@ -12,11 +12,13 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="cvextern.dll" />
-    <None Remove="libusb-1.0.dll" />
-    <None Remove="opencv_videoio_ffmpeg490_64.dll" />
+  <ItemGroup> 
+    <None Update="..\..\Module\cvextern.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <None Update="..\..\Module\libusb-1.0.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <None Update="..\..\Module\opencv_videoio_ffmpeg490_64.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <None Update="..\..\Module\model\**\*"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
   </ItemGroup>
+
 
   <ItemGroup>
     <Content Include="UAIBrainServer.ico">
@@ -32,15 +34,6 @@
     <Reference Include="UAI_ONNX">
       <HintPath>..\UAI_ONNX.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="model\model.onnx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="model\model_quantized.onnx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

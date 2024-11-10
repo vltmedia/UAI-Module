@@ -12,10 +12,14 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="model\**" />
-    <EmbeddedResource Remove="model\**" />
-    <None Remove="model\**" />
+  <ItemGroup> 
+    <None Update="..\..\Module\cvextern.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <None Update="..\..\Module\libusb-1.0.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <None Update="..\..\Module\opencv_videoio_ffmpeg490_64.dll"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
+    <Compile Remove="..\..\Module\model\**\" />
+    <EmbeddedResource Remove="..\..\Module\model\**\" />
+
+    <None Update="..\..\Module\model\**\*"> <CopyToOutputDirectory>Always</CopyToOutputDirectory> </None> 
   </ItemGroup>
 
   <ItemGroup>
